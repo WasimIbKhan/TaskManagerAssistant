@@ -1,7 +1,14 @@
 ﻿@page "/"
 @using TaskManagerAssistant.Client.Models
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 <PageTitle>Task Manager Assistant</PageTitle>
+
+<div class="row mb-4">
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-primary" @onclick="CreateTask">New Task</button>
+    </div>
+</div>
 
 @if (tasks is null)
 {
@@ -44,6 +51,12 @@ else
     {
         tasks = TaskClient.GetTasks();
     }
+
+    private void CreateTask()
+    {
+        NavigationManager.NavigateTo("/CreateTask");
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
