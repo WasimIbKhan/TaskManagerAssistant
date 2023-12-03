@@ -28,9 +28,35 @@ public class TaskClient
         new TaskItem { Id = 20, Title = "Reading", Description = "Read political book", DueDate = DateTime.Parse("2023-04-08 12:00"), IsCompleted = false }
     };
 
+    public static int GetNextTaskId()
+    {
+        return tasks.Any() ? tasks.Max(t => t.Id) + 1 : 1;
+    }
+
     public static TaskItem[] GetTasks()
     {
         return tasks.ToArray();
     }
 
+    public static TaskItem GetTask(int id)
+    {
+        return tasks.Find(t => t.Id == id);
+    }
+
+    public static void AddTask(TaskItem task)
+    {
+        tasks.Add(task);
+    }
+
+    public static void UpdateTask(TaskItem task)
+    {
+        var index = tasks.FindIndex(t => t.Id == task.Id);
+        tasks[index] = task;
+    }
+
+    public static void DeleteTask(int id)
+    {
+        var index = tasks.FindIndex(t => t.Id == id);
+        tasks.RemoveAt(index);
+    }
 }

@@ -1,0 +1,38 @@
+﻿@page "/Task"
+@using TaskManagerAssistant.Client.Models;
+@inject NavigationManager NavigationManager
+<PageTitle>Task</PageTitle>
+<h3>New Task</h3>
+
+<div class="row">
+    <div class="col-sm-4">
+        <EditForm Model="@taskItem" OnValidSubmit="HandleSubmit">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <InputText id="title" @bind-Value="@taskItem.Title" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <InputTextArea id="description" @bind-Value="@taskItem.Description" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="dueDate" class="form-label">Due Date</label>
+                <InputDate id="dueDate" @bind-Value="@taskItem.DueDate" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-success">Save Task</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private TaskItem taskItem = new TaskItem();
+
+    private void HandleSubmit()
+    {
+        taskItem.Id = TaskClient.GetNextTaskId();
+
+        TaskClient.AddTask(taskItem);
+        NavigationManager.NavigateTo("/");
+    }
+
+}
