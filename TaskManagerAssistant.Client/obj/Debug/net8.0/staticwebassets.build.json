@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2LOUrD6qahsQN2zJ3hLGHWf/7F79XyOiwFlOn/l0liQ=",
+  "Hash": "4+ykumXX2mUIP3wLC9ThJHOuKKl7ogF3zIKat7Eshac=",
   "Source": "TaskManagerAssistant.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7921,12 +7921,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\wasim\\Documents\\GitHub\\TaskManagerAssistant\\TaskManagerAssistant.Client\\wwwroot\\sample-data\\weather.json",
+      "Identity": "C:\\Users\\wasim\\Documents\\GitHub\\TaskManagerAssistant\\TaskManagerAssistant.Client\\wwwroot\\js\\scrolling.js",
       "SourceId": "TaskManagerAssistant.Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\wasim\\Documents\\GitHub\\TaskManagerAssistant\\TaskManagerAssistant.Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "sample-data/weather.json",
+      "RelativePath": "js/scrolling.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7937,7 +7937,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
+      "OriginalItemSpec": "wwwroot\\js\\scrolling.js"
     }
   ]
 }

@@ -37,8 +37,8 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\wasim\\Documents\\GitHub\\TaskManagerAssistant\\TaskManagerAssistant.Client\\wwwroot\\sample-data\\weather.json",
-      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+      "Id": "C:\\Users\\wasim\\Documents\\GitHub\\TaskManagerAssistant\\TaskManagerAssistant.Client\\wwwroot\\js\\scrolling.js",
+      "PackagePath": "staticwebassets\\js\\scrolling.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TaskManagerAssistant.Client.Microsoft.AspNetCore.StaticWebAssets.props",

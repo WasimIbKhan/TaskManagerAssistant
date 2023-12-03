@@ -1,7 +1,83 @@
 ﻿@page "/"
+@using TaskManagerAssistant.Client.Models
+@inject IJSRuntime JSRuntime
+<PageTitle>Task Manager Assistant</PageTitle>
 
-<PageTitle>Home</PageTitle>
+@if (tasks is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div id="week-container" class="week-container d-flex flex-nowrap overflow-auto">
+        <div class="week-container d-flex flex-nowrap overflow-auto">
+            @foreach (var dayGroup in tasks.GroupBy(t => t.DueDate.Date).OrderBy(g => g.Key))
+            {
+                <div class="day-container bg-light m-2 p-3" style="width: 300px;">
+                    <h4 class="text-primary">@dayGroup.Key.ToString("dd dddd")</h4>
+                    <div class="tasks-container">
+                        @foreach (var taskItem in dayGroup)
+                        {
+                            var taskBgColor = GetTaskBackgroundColor(taskItem.DueDate.DayOfWeek, taskItem.IsCompleted);
+                            <div class="task-card p-2 my-2 rounded shadow-sm" style="background-color:@taskBgColor">
+                                <h6 class="@(taskItem.IsCompleted ? "completed-task" : "")">@taskItem.Title</h6>
+                                <p>@taskItem.Description</p>
+                                <button class="btn btn-sm @(taskItem.IsCompleted ? "btn-dark" : "btn-light")"
+                                    @onclick="() => ToggleComplete(taskItem)">
+                                    @(taskItem.IsCompleted ? "Undo" : "Complete")
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+
+@code {
+    private TaskItem[]? tasks;
+
+    protected override async void OnInitialized()
+    {
+        tasks = TaskClient.GetTasks();
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("scrollContainer.initialize", "week-container");
+        }
+    }
+
+    private string GetTaskBackgroundColor(DayOfWeek dayOfWeek, bool isCompleted)
+    {
+        var baseColor = dayOfWeek switch
+        {
+            DayOfWeek.Monday => "#FFDDDD",
+            DayOfWeek.Tuesday => "#DDFFDD",
+            DayOfWeek.Wednesday => "#DDDDFF",
+            DayOfWeek.Thursday => "#FFDDDD",
+            DayOfWeek.Friday => "#DDFFDD",
+            DayOfWeek.Saturday => "#DDDDFF",
+            DayOfWeek.Sunday => "#DDDDFF",
+            _ => "#FFFFFF"
+        };
+
+        return isCompleted ? DarkenColor(baseColor) : baseColor;
+    }
+
+    private string DarkenColor(string color)
+    {
+        // Logic to darken the color
+        // This is a placeholder for the actual implementation
+        return color;
+    }
+
+    void ToggleComplete(TaskItem taskItem)
+    {
+        taskItem.IsCompleted = !taskItem.IsCompleted;
+    }
+}

@@ -76,3 +76,57 @@ main[b-ybr3aswaou] {
         padding-right: 1.5rem !important;
     }
 }
+/* /Pages/Home.razor.rz.scp.css */
+.week-container[b-p06hdnsgcu] {
+    white-space: nowrap;
+}
+
+.day-container[b-p06hdnsgcu] {
+    display: inline-block;
+    vertical-align: top;
+    background-color: #f0f0f0;
+    border: none;
+}
+
+.tasks-container[b-p06hdnsgcu] {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-card[b-p06hdnsgcu] {
+    border: none;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* You may want to change this per task type or status */
+    transition: transform 0.3s ease; /* Smooth transformation when interacted with */
+}
+
+.task-card:hover[b-p06hdnsgcu] {
+    transform: translateY(-5px); /* Slight raise effect on hover */
+}
+
+/* Additional styles for buttons and text to match your UI more closely */
+.btn-sm[b-p06hdnsgcu] {
+    border-radius: 20px; /* Makes buttons more pill-shaped */
+    font-size: 0.8rem; /* Smaller font size for the button text */
+    padding: 0.25rem 0.5rem;
+}
+
+.completed-task[b-p06hdnsgcu] {
+    text-decoration: line-through;
+}
+
+/* If you have specific colors per task type, add classes for each and define here */
+.task-card.type-1[b-p06hdnsgcu] {
+    background-color: #e0ffe0; /* Example color for a certain type of task */
+}
+.task-card.completed[b-p06hdnsgcu] {
+    background-color: #d1e7dd; /* A greenish background to indicate completion */
+    color: #0f5132; /* A darker green for the text to maintain contrast */
+}
+
+/* New styles for the title of completed tasks */
+.task-card.completed h6[b-p06hdnsgcu] {
+    text-decoration: line-through; /* Strikethrough effect for completed tasks */
+}

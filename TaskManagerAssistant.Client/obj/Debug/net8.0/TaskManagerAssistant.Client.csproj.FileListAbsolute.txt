@@ -1029,3 +1029,4 @@ C:\Users\wasim\Documents\GitHub\TaskManagerAssistant\TaskManagerAssistant.Client
 C:\Users\wasim\Documents\GitHub\TaskManagerAssistant\TaskManagerAssistant.Client\obj\Debug\net8.0\refint\TaskManagerAssistant.Client.dll
 C:\Users\wasim\Documents\GitHub\TaskManagerAssistant\TaskManagerAssistant.Client\obj\Debug\net8.0\TaskManagerAssistant.Client.pdb
 C:\Users\wasim\Documents\GitHub\TaskManagerAssistant\TaskManagerAssistant.Client\obj\Debug\net8.0\ref\TaskManagerAssistant.Client.dll
+C:\Users\wasim\Documents\GitHub\TaskManagerAssistant\TaskManagerAssistant.Client\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css
